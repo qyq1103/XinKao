@@ -39,6 +39,7 @@
         <!--activity注册-->
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.ChatActivity"/>
+        <activity android:name=".activity.SettingActivity"/>
 
 
         <!-- 设置环信应用的AppKey -->

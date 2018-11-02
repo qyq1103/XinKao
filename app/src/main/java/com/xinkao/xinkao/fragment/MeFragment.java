@@ -3,56 +3,38 @@ package com.xinkao.xinkao.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.GridView;
 
-import com.hyphenate.EMCallBack;
-import com.hyphenate.chat.EMClient;
-import com.xinkao.xinkao.LoginActivity;
 import com.xinkao.xinkao.R;
+import com.xinkao.xinkao.activity.SettingActivity;
+import com.xinkao.xinkao.adapter.MeAdapter;
 
 public class MeFragment extends Fragment {
+    private String[] meNames = {"我的积分", "“花”", "我的订单", "服务状态", "办理服务", "软件设置"};
 
-    private View meView;
-
-    @Nullable
+    @NonNull
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        meView = inflater.inflate(R.layout.fragment_me, null);
-        meView.findViewById(R.id.logout).setOnClickListener(new View.OnClickListener() {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View meView = inflater.inflate(R.layout.fragment_me, null);
+        GridView gridView = meView.findViewById(R.id.me_gv);
+        MeAdapter meAdapter = new MeAdapter(meNames, getActivity());
+        gridView.setAdapter(meAdapter);
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View v) {
-                singout();
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                switch (position) {
+                    case 5:
+                        startActivity(new Intent(getContext(), SettingActivity.class));
+                        break;
+                }
             }
         });
 
         return meView;
-    }
-
-    private void singout() {
-        EMClient.getInstance().logout(false, new EMCallBack() {
-            @Override
-            public void onSuccess() {
-                startActivity(new Intent(getContext(), LoginActivity.class));
-                Log.i("tag", "退出成功!");
-                if (getActivity() != null) {
-                    getActivity().finish();
-                }
-            }
-
-            @Override
-            public void onError(int i, String s) {
-                Log.e("error", i + "退出失败，————" + s);
-            }
-
-            @Override
-            public void onProgress(int i, String s) {
-
-            }
-        });
     }
 }

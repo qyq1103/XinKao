@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/set_page_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/news_msg"
+            style="@style/me_Menu"
+            android:text="@string/news_msg" />
+
+        <TextView
+            android:id="@+id/clean_caches"
+            style="@style/me_Menu"
+            android:text="@string/clean_caches" />
+
+        <TextView
+            android:id="@+id/feedback"
+            style="@style/me_Menu"
+            android:text="@string/feedback" />
+
+        <TextView
+            android:id="@+id/common_problem"
+            style="@style/me_Menu"
+            android:text="@string/common_problem" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/logout"
+        android:layout_marginTop="70dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#B5EBB5"
+        android:text="@string/logout"
+        android:textColor="#fff"
+        android:textSize="20sp" />
+</LinearLayout>

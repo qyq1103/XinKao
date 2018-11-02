@@ -12,9 +12,14 @@
     <string name="chat">聊天</string>
     <string name="share">分享</string>
     <string name="me">我</string>
-    <!--Fragment_ME-->
+    <!--Setting_Activity-->
     <string name="logout">退出登录</string>
+    <string name="news_msg">新消息通知</string>
+    <string name="clean_caches">清理缓存</string>
+    <string name="feedback">意见反馈</string>
+    <string name="common_problem">常见问题</string>
     <!--Conversation_list-->
     <string name="contacts_menu">通讯录</string>
     <string name="chat_group">发起群聊</string>
+
 </resources>
