@@ -37,7 +37,7 @@ public class SettingActivity extends AppCompatActivity {
             public void onSuccess() {
                 startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                 Log.i("tag", "退出成功!");
-
+                setResult(5);
                 finish();
             }
 

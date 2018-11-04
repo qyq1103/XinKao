@@ -29,12 +29,24 @@ public class MeFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
                     case 5:
-                        startActivity(new Intent(getContext(), SettingActivity.class));
+                        Intent intent = new Intent(getContext(),SettingActivity.class);
+                        startActivityForResult(intent,5);
+//                        startActivity(new Intent(getContext(), SettingActivity.class));
                         break;
                 }
             }
         });
 
         return meView;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == 5){
+            if (getActivity() != null){
+                getActivity().finish();
+            }
+        }
     }
 }
